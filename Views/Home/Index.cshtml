@@ -7,14 +7,12 @@
 </div>
 @if (ViewBag.Grupo.integrantes != null)
 {
-    <div>
+    <div class="integrantes">
         @foreach (var a in ViewBag.Grupo.integrantes)
         {
-            <div>
-            <img src="/@a.Value.foto" alt="Foto de @a.Value.nombre">
-            <a asp-controller="Home" asp-action="infoIntegrante" asp-route-dni="@a.Key">
-            @a.Value.nombre
-            </a>
+            <div class="integrante">
+                <a asp-controller="Home" asp-action="infoIntegrante" asp-route-dni="@a.Key"><img src="/@a.Value.foto" alt="Foto de @a.Value.nombre"/></a>
+                <a asp-controller="Home" asp-action="infoIntegrante" asp-route-dni="@a.Key">@a.Value.nombre</a>
             </div>
         }
     </div>
