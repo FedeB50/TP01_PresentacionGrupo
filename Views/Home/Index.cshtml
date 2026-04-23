@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Grupo 4IB";
+}
+<div>
+    <img src="/Logo.jpg" alt="Logo">
+    <h1>Grupo 4IB</h1>
+</div>
+@if (ViewBag.Grupo.integrantes != null)
+{
+    <div>
+        @foreach (var a in ViewBag.Grupo.integrantes)
+        {
+            <div>
+            <img src="/@a.Value.foto" alt="Foto de @a.Value.nombre">
+            <a asp-controller="Home" asp-action="infoIntegrante" asp-route-dni="@a.Key">
+            @a.Value.nombre
+            </a>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No hay integrantes cargados.</p>
+}

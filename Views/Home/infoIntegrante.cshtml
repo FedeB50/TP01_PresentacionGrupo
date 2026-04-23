@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Información del Integrante";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Información del Integrante</h1>
+    @if (ViewBag.Integrante != null)
+    {
+        <img src="/@ViewBag.Integrante.foto" alt="Foto de @ViewBag.Integrante.nombre">
+        <h2>@ViewBag.Integrante.nombre</h2>
+        <p>DNI: @ViewBag.Dni</p>
+        <p>Fecha de Nacimiento: @ViewBag.Integrante.fechaNacimiento</p>
+        <p>Familiares:</p>
+        @foreach (var familiar in ViewBag.Integrante.familiares)
+        {
+            <p>@familiar</p>
+        }
+        <p>Intereses:</p>
+        @foreach (var interes in ViewBag.Integrante.intereses)
+        {
+            <p>@interes</p>
+        }
+    }
+    else
+    {
+        <p>Integrante no encontrado.</p>
+    }
+    <a href="Index">Volver</a>
+</div>
